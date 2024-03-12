@@ -46,3 +46,10 @@ Instruction for setup
 3. After the automatic build is completed, run OneTeamAnywhereApplication.java
    ![image](https://github.com/dewarzki/one_team_anywhere/assets/17247994/02f202b6-7998-480a-ad64-06cfb58dafe5)
 
+4. Once the spring boot run successfully, get One Team Anywhere.postman_collection.json here
+   ![image](https://github.com/dewarzki/one_team_anywhere/assets/17247994/438f472b-c7bd-4af4-9b2b-a2443d8090c1)
+5. then import it into postman
+   ![image](https://github.com/dewarzki/one_team_anywhere/assets/17247994/41fb2317-838a-41d6-8a45-688e2a52fdeb)
+6. You can now ready to test the project. Feel free to explore all the request including positive and negative scenario as shown in the image below
+   ![image](https://github.com/dewarzki/one_team_anywhere/assets/17247994/3fba1424-8a69-4281-899f-5514c8bf2c5d)
+7. Thats it! Hoping that you will satisfy the project. Thank you and thank God for this opportunity.
