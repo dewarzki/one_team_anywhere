@@ -30,8 +30,13 @@ public class NoteController {
     private NoteService noteService;
 
     @PostMapping
-    public ResponseEntity<String> createNewNotes(@RequestBody NoteRequest requestNote) {
-        return ResponseEntity.ok().body("Succesfully created new entry for note. Id created is " + noteService.createNewNotes(requestNote));
+    public ResponseEntity<String> createNewNotes(@RequestBody NoteRequest noteRequest) {
+        if(Optional.ofNullable(noteRequest.getTitle()).isPresent()
+        && Optional.ofNullable(noteRequest.getBody()).isPresent()){
+            return ResponseEntity.ok().body("Succesfully created new entry for note. Id created is " + noteService.createNewNotes(noteRequest));
+        } else {
+            return ResponseEntity.badRequest().body("title and body is/are not null.");
+        }
     }
     
     @GetMapping
@@ -62,8 +67,13 @@ public class NoteController {
     public ResponseEntity<String> updateNoteById(@PathVariable("id") int id, @RequestBody NoteRequest noteRequest){
         Note existingNote = noteService.findById(id);
         if(Optional.ofNullable(existingNote).isPresent()){
-            noteService.updateNoteById(id, noteRequest);
-            return ResponseEntity.ok().body("Successfully updated id " + id);
+            if(Optional.ofNullable(noteRequest.getTitle()).isPresent() 
+        && Optional.ofNullable(noteRequest.getBody()).isPresent()){
+                noteService.updateNoteById(id, noteRequest);
+                return ResponseEntity.ok().body("Successfully updated id " + id);
+            } else {
+                return ResponseEntity.badRequest().body("title and body is/are not null.");
+            }
         }
         return ResponseEntity.notFound().build();
     }

@@ -43,9 +43,10 @@ public class NoteRepositoryImpl implements NoteRepository{
     public void updateNoteById(int id, NoteRequest noteRequest){
         noteList.stream()
         .map(n -> {
-            if(n.getId() == id)
+            if(n.getId() == id){
                 n.setTitle(noteRequest.getTitle());
                 n.setBody(noteRequest.getBody());
+            }
                 return n;
         })
         .collect(Collectors.toList());
